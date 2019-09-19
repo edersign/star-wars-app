@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": false,
+        "displayName": true,
+        "preprocess": false
+      }
+    ],
+    "react-hot-loader/babel"
+  ]
+}
