@@ -8,7 +8,7 @@ export const getCharacter = id =>
   fetch(`${api}/people/${id}`).then(response => response.json());
 
 export const getStarships = () =>
-  fetch(`${api}/starships`).then(response => response.json());
+  fetch(`${api}/starships/`).then(response => response.json());
 
 export const getStarship = id =>
   fetch(`${api}/starships/${id}`).then(response => response.json());

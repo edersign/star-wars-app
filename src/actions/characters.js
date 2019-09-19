@@ -14,7 +14,7 @@ export function requestCharacters() {
 }
 export const getCharacters = characters => ({
   type: RECEIVE_CHARACTERS,
-  characters: characters,
+  characters,
 });
 
 export function invalidateCharacters() {
@@ -36,7 +36,7 @@ export const fetchCharacters = () => dispatch => {
 
 export const getCharacter = character => ({
   type: RECEIVE_CHARACTER,
-  character: character,
+  character,
 });
 
 export const fetchCharacter = id => dispatch => {

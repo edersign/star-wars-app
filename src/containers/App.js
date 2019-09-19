@@ -4,11 +4,13 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { withRouter } from 'react-router';
 
 import Routes from './Routes';
+import Loader from '../components/load';
 const Navigation = lazy(() => import('../components/navigation'));
+
 
 function App() {
   return (
-    <Suspense fallback={<p>Loading posts...</p>}>
+    <Suspense fallback={<Loader />}>
       <Router>
         <Navigation />
         <Main>
@@ -44,8 +46,8 @@ html, body {
   font-style: normal;
   padding: 0;
   margin: 0;
-  color: rgb(46, 68, 78);
-  background-color: #f1f3f5;
+  color: #f9f9f9;
+  background-color: #252525;
 }
 
 ul, ol {

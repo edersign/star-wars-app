@@ -12,7 +12,7 @@ const Navigation = () => (
       <LogoContainer exact activeClassName="active" to="/">
         <Logo /> Star Wars App
       </LogoContainer>
-      <BarLink exact activeClassName="active" to="/about-us">
+      <BarLink exact activeClassName="active" to="/about">
         About
       </BarLink>
     </Container>
@@ -58,16 +58,16 @@ const BarLink = styled(NavLink)`
   transition: all 300ms ease-in-out;
   &:hover {
     background: rgba(0, 0, 0, 0.15);
-    box-shadow: inset 0 -3px 0 0 #02b3e4;
+    box-shadow: inset 0 3px 0 0 #02b3e4;
     color: #777;
   }
   &:hover.active {
     background: rgba(0, 0, 0, 0.15);
-    box-shadow: inset 0 -4px 0 0 #02b3e4;
+    box-shadow: inset 0 4px 0 0 #02b3e4;
     color: #777;
   }
   &.active {
-    box-shadow: inset 0 -2px 0 0 #02b3e4;
+    box-shadow: inset 0 2px 0 0 #02b3e4;
     opacity: 1;
     color: #454545;
   }
