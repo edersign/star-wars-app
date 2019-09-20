@@ -35,7 +35,9 @@ export class Home extends React.PureComponent {
       return <p>Oops, Failed to load list!</p>;
     }
 
-    return <CharactersList characters={characters.results} starships={starships} />;
+    return (
+      <CharactersList characters={characters.results} starships={starships} />
+    );
   };
 
   render() {
@@ -60,7 +62,8 @@ function mapDispatchToProps(dispatch) {
     { dispatch },
     bindActionCreators(
       {
-        fetchCharacters, fetchStarships
+        fetchCharacters,
+        fetchStarships,
       },
       dispatch,
     ),
@@ -78,8 +81,17 @@ export default compose(
 const Mainfeed = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 5em auto;
-  grid-template-columns: repeat(3, 1fr);
   display: grid;
-  gap: 50px;
+  @media (min-width: 320px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+    margin: 20px;
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    margin: 5em auto;
+    width: 100%;
+  }
 `;

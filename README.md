@@ -1,68 +1,92 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Projeto Start Wars App
 
-## Available Scripts
+Este é um projeto em React com função de estudos e aprimoramento de conhecimento. Ele tem função de Feed, se alimentando dos dados so site [https://swapi.co/documentation#people](https://swapi.co/) via Api- Rest:
 
-In the project directory, you can run:
+- São listados personagens os filmes.
+- As informações das `Starship` são carregado de acordo a cada personagem.
+- Clicando no card do personagem, abre as inflamações detalhadas.
 
-### `npm start`
+// To-DO
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- implementar paginação
+- busca de imagens
+- otimização de performace
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Este projeto utiliza [Create React App](https://github.com/facebookincubator/create-react-app) de boilerplate.
 
-### `npm test`
+## Iniciando o desenvolvimento
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para iniciar o desenvolvimento:
 
-### `npm run build`
+- Instale as dependencias do projeto `npm install` ou `yarn install`
+- Inicialize o servidor de desenvolvimento `npm start` ou `yarn start`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+$ npx create-react-app star-wars-app
+$ cd star-wars-app
+$ npm install
+$ npm start
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- [React](https://github.com/facebook/react/)
+- [Redux](https://github.com/reduxjs/redux)
+- [Redux-thunk](https://github.com/reduxjs/redux-thunk)
+- [React Router](https://github.com/ReactTraining/react-router)
+- [Styled Components](https://github.com/styled-components/styled-components)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Backend Server
 
-### `npm run eject`
+O Json utilizado é disponibilizado pelo [https://swapi.co/documentation#people](https://swapi.co/). Detalhes de requisição disponíveis, no arquivo `utils/api.jon`.
+O gerenciamento de estado é feito através do Redux.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [`getCharacters`](#getCharacters) #Obter os 10 últimos personagens
+- [`getCharacter(id)`](#getCharacter) #Busca por personagem especifico, id é obrigatório
+- [`getStarships`](#getStarships) #Obtem 10 Naves por página
+- [`getStarship(id)`](#getStarship) #Busca por nave especifico, id é obrigatório
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `getCharacters`
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```js
+getCharacters();
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Retorna um JSON através de uma Promise, com Array personagens. Que são exibidos página inicial.
 
-## Learn More
+### `getCharacter(id)`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+getCharacter(id);
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- character: `<Object>` retorna informação de personagem baseada no seu `id`
 
-### Code Splitting
+### `getStarships`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```js
+getStarships();
+```
 
-### Analyzing the Bundle Size
+- Retorna um JSON através de uma Promise, com Array de naves. Que são exibidos a partir de requisições individuais..
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### `getStarship(id)`
 
-### Making a Progressive Web App
+```js
+getStarship(id);
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- starship: `<Object>` retorna informação de personagem baseada no seu `id`
 
-### Advanced Configuration
+## Importante
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Para implementação de novas requisições, recomenda-se ler a documentação do Servidor.
 
-### Deployment
+## Create React App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Este projeto usou o [Create React App 3+](https://github.com/facebookincubator/create-react-app) como base de configurações de servidor de desenvolvimento, build de produção, configurações de [Babel](https://babeljs.io) e [Webpack](https://webpack.js.org).
+Mais informações sobre [here](https://facebook.github.io/create-react-app/).
 
-### `npm run build` fails to minify
+## Contributing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+As infomações e imagens usada nesse projeto não tem fim comercial.
+
+licença [CC BY-ND 3.0](https://creativecommons.org/licenses/by-nd/3.0/)

@@ -2,21 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
+import Starship from './starships';
+import Image from '../images/placeholder.jpg';
 
 const CharactersList = ({ characters }) => {
   return (
     <>
       {characters.map(({ name, starships, films, gender, url }) => (
         <PostTitleLink key={name} to={`/characters${url.slice(27)}`}>
-          <ItemBackground background={`../static/images/fuse.png`} />
+          <ItemBackground background={Image} />
           <ItemMeta>
             <Title>{name}</Title>
             <SubTitle>{gender}</SubTitle>
           </ItemMeta>
           <Starships>
-          {starships.map((starship, index) => (
-            <p key={index}>{starship}</p>
-          ))}
+            {starships.map((starship, index) => (
+              <Starship
+                key={index}
+                index={index}
+                id={parseFloat(starship.slice(31, 33))}
+              />
+            ))}
           </Starships>
         </PostTitleLink>
       ))}
@@ -80,10 +86,30 @@ export const PostTitleLink = styled(Link)`
     transition-delay: 0s;
     z-index: 3;
   }
+
+  @media (min-width: 320px) {
+    min-height: 400px;
+    background-size: cover;
+    min-width: 90%;
+  }
+  @media (min-width: 768px) {
+    min-width: 210px;
+  }
+  @media (min-width: 1024px) {
+    min-width: 295px;
+  }
+  @media (min-width: 1280px) {
+  }
+  @media (min-width: 1440px) {
+  }
+  @media (min-width: 1600px) {
+  }
 `;
 const ItemBackground = styled.div`
-  background-image: url(${({ background }) => background ? background : 'transparent'});
+  background-image: url(${({ background }) =>
+    background ? background : Image});
   position: relative;
+  background-position: center center;
   &:after,
   &:before {
     content: '';
@@ -104,17 +130,20 @@ const ItemBackground = styled.div`
     z-index: 2;
   }
   @media (min-width: 320px) {
-    min-height: 200px;
+    min-height: 400px;
     background-size: cover;
   }
   @media (min-width: 768px) {
   }
   @media (min-width: 1024px) {
-    max-height: 250px;
+    min-height: 450px;
   }
-  @media (min-width: 1280px) {}
-  @media (min-width: 1440px) {}
-  @media (min-width: 1600px) {}
+  @media (min-width: 1280px) {
+  }
+  @media (min-width: 1440px) {
+  }
+  @media (min-width: 1600px) {
+  }
 `;
 const ItemMeta = styled.div`
   display: flex;
@@ -125,11 +154,13 @@ const ItemMeta = styled.div`
   left: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   z-index: 5;
+  position: absolute;
+  top: 0;
 `;
 const Title = styled.h3`
-  color: #252525;
+  color: #ffe300;
   margin: 0;
   font-weight: 700;
   text-transform: none;
@@ -151,7 +182,7 @@ const Title = styled.h3`
   }
 `;
 const SubTitle = styled.p`
-  color: #f90;
+  color: #777;
   margin: 0 0 10px 0;
   font-weight: 500;
   @media (min-width: 320px) {
@@ -164,9 +195,13 @@ const SubTitle = styled.p`
 const Starships = styled.div`
   display: grid;
   align-content: stretch;
-  gap: 0px 0px;
+  gap: 15px;
   grid-auto-columns: 1fr;
   grid-template-rows: auto;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  overflow: hidden;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
 `;

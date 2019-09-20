@@ -17,8 +17,8 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
 `;
@@ -33,7 +33,7 @@ export const donutSpin = keyframes`
 const Loader = styled.div`
   display: inline-block;
   border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left-color: #5778f3;
+  border-left-color: #ffe300;
   border-radius: 50%;
   width: 30px;
   height: 30px;

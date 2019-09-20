@@ -7,7 +7,6 @@ import Routes from './Routes';
 import Loader from '../components/load';
 const Navigation = lazy(() => import('../components/navigation'));
 
-
 function App() {
   return (
     <Suspense fallback={<Loader />}>
@@ -68,6 +67,11 @@ ul li, ol li {
     list-style-position: outside;
     margin-left: 1em;
   }
+}
+
+#root {
+  width: 100%;
+  overflow: hidden;
 }
 `;
 
