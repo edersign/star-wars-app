@@ -2,9 +2,9 @@
 
 Este é um projeto em React com função de estudos e aprimoramento de conhecimento. Ele tem função de Feed, se alimentando dos dados so site [https://swapi.co/documentation#people](https://swapi.co/) via Api- Rest:
 
-- São listados personagens os filmes.
-- As informações das `Starship` são carregado de acordo a cada personagem.
-- Clicando no card do personagem, abre as inflamações detalhadas.
+- São listados personagens dos filmes.
+- As informações das `Starship` são carregadas de acordo com cada personagem.
+- Clicando no card do personagem, abrem-se as informações detalhadas.
 
 // To-DO
 
@@ -18,7 +18,7 @@ Este projeto utiliza [Create React App](https://github.com/facebookincubator/cre
 
 Para iniciar o desenvolvimento:
 
-- Instale as dependencias do projeto `npm install` ou `yarn install`
+- Instale as dependências do projeto `npm install` ou `yarn install`
 - Inicialize o servidor de desenvolvimento `npm start` ou `yarn start`
 
 ```sh
